@@ -3,8 +3,10 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 RUN_DIR="$ROOT/run"
+REMOTE_MAC_PORT="${REMOTE_MAC_PORT:-11300}"
+LOCAL_GRAFANA_PORT="${LOCAL_GRAFANA_PORT:-13000}"
 
-for name in grafana prometheus lm_exporter; do
+for name in reverse_grafana_tunnel grafana prometheus lm_exporter; do
   pid_file="$RUN_DIR/${name}.pid"
   if [[ -f "$pid_file" ]]; then
     pid="$(cat "$pid_file")"
@@ -19,3 +21,6 @@ for name in grafana prometheus lm_exporter; do
     echo "No pid file for $name"
   fi
 done
+
+pkill -f "$ROOT/reverse_grafana_tunnel.sh" >/dev/null 2>&1 || true
+pkill -f "ssh .* -R ${REMOTE_MAC_PORT}:127.0.0.1:${LOCAL_GRAFANA_PORT}" >/dev/null 2>&1 || true

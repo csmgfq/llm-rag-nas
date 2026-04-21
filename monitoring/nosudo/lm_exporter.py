@@ -36,13 +36,53 @@ def read_meminfo():
     return total, used
 
 
-def lmstudio_up():
+def _candidate_lm_urls():
+    candidates: list[str] = []
+    seen = set()
+
+    def add(url: str):
+        url = (url or "").strip()
+        if not url or url in seen:
+            return
+        seen.add(url)
+        candidates.append(url)
+
+    # 1) Explicit env first
+    add(LM_URL)
+
+    # 2) Optional fallback env
+    add(os.environ.get("LM_URL_FALLBACK", ""))
+
+    # 3) Stable defaults
+    add("http://127.0.0.1:1234/v1/models")
+    add("http://127.0.0.1:1234/api/v0/models")
+
+    # 4) Read lmstudio configured port when available
+    cfg = Path.home() / ".lmstudio" / ".internal" / "http-server-config.json"
     try:
-        with urllib.request.urlopen(LM_URL, timeout=2) as resp:
-            _ = json.load(resp)
-        return 1
+        data = json.loads(cfg.read_text(encoding="utf-8"))
+        port = int(data.get("port", 1234))
+        host = str(data.get("networkInterface", "127.0.0.1")).strip() or "127.0.0.1"
+        if host == "0.0.0.0":
+            host = "127.0.0.1"
+        add(f"http://{host}:{port}/v1/models")
+        add(f"http://{host}:{port}/api/v0/models")
     except Exception:
-        return 0
+        pass
+
+    return candidates
+
+
+def lmstudio_up():
+    for url in _candidate_lm_urls():
+        try:
+            with urllib.request.urlopen(url, timeout=2) as resp:
+                data = json.load(resp)
+            if isinstance(data, dict) and isinstance(data.get("data"), list):
+                return 1
+        except Exception:
+            continue
+    return 0
 
 
 def process_count(name):
