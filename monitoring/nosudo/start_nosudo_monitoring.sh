@@ -17,6 +17,8 @@ GRAFANA_HOST="${GRAFANA_HOST:-0.0.0.0}"
 GRAFANA_PORT="${GRAFANA_PORT:-13000}"
 LM_EXPORTER_HOST="${LM_EXPORTER_HOST:-127.0.0.1}"
 LM_EXPORTER_PORT="${LM_EXPORTER_PORT:-9401}"
+FNOS_EXPORTER_HOST="${FNOS_EXPORTER_HOST:-127.0.0.1}"
+FNOS_EXPORTER_PORT="${FNOS_EXPORTER_PORT:-9402}"
 LM_EXPORTER_TOKEN="${LM_EXPORTER_TOKEN:-}"
 LM_URL="${LM_URL:-http://127.0.0.1:1234/v1/models}"
 LM_URL_FALLBACK="${LM_URL_FALLBACK:-http://127.0.0.1:1234/api/v0/models}"
@@ -49,6 +51,7 @@ stop_if_running() {
   fi
 }
 
+stop_if_running "$RUN_DIR/fnos_transfer_exporter.pid"
 stop_if_running "$RUN_DIR/lm_exporter.pid"
 stop_if_running "$RUN_DIR/prometheus.pid"
 stop_if_running "$RUN_DIR/grafana.pid"
@@ -61,6 +64,8 @@ unset LM_URL LM_URL_FALLBACK
 export LM_EXPORTER_HOST
 export LM_EXPORTER_PORT
 export LM_EXPORTER_TOKEN
+export FNOS_EXPORTER_HOST
+export FNOS_EXPORTER_PORT
 export LM_URL
 export LM_URL_FALLBACK
 export REMOTE_MAC_PORT
@@ -74,6 +79,9 @@ cp "$ROOT/grafana/provisioning/datasources/datasource.yml" "$DATASOURCE_YML_REND
 
 nohup setsid python3 "$ROOT/lm_exporter.py" > "$LOG_DIR/lm_exporter.log" 2>&1 < /dev/null &
 echo $! > "$RUN_DIR/lm_exporter.pid"
+
+nohup setsid python3 "$ROOT/fnos_transfer_exporter.py" > "$LOG_DIR/fnos_transfer_exporter.log" 2>&1 < /dev/null &
+echo $! > "$RUN_DIR/fnos_transfer_exporter.pid"
 
 nohup setsid "$PROM_BIN" \
   --web.listen-address=$PROM_HOST:$PROM_PORT \
@@ -95,12 +103,14 @@ sleep 2
 
 echo "Started:"
 echo "- lm_exporter PID $(cat "$RUN_DIR/lm_exporter.pid")"
+echo "- fnos_transfer_exporter PID $(cat "$RUN_DIR/fnos_transfer_exporter.pid")"
 echo "- prometheus PID $(cat "$RUN_DIR/prometheus.pid")"
 echo "- grafana PID $(cat "$RUN_DIR/grafana.pid")"
 echo "- reverse_tunnel PID $(cat "$RUN_DIR/reverse_grafana_tunnel.pid")"
 
 echo "Health checks:"
 curl -fsS http://127.0.0.1:9401/metrics >/dev/null && echo "- lm_exporter ok"
+curl -fsS http://127.0.0.1:9402/metrics >/dev/null && echo "- fnos_transfer_exporter ok"
 curl -fsS http://127.0.0.1:19090/-/healthy >/dev/null && echo "- prometheus ok"
 curl -fsS http://127.0.0.1:13000/api/health >/dev/null && echo "- grafana ok"
 

@@ -4,6 +4,7 @@
 - Grafana（127.0.0.1:13000）
 - Prometheus（127.0.0.1:19090）
 - 自定义 exporter（127.0.0.1:9401）
+- FNOS/传输 exporter（127.0.0.1:9402）
 
 可视化重点：
 - LM Studio API 在线状态
@@ -43,6 +44,7 @@ bash start_nosudo_monitoring.sh
 - Grafana: http://127.0.0.1:13000
 - Prometheus: http://127.0.0.1:19090
 - Exporter: http://127.0.0.1:9401?token=YOUR_SECRET_TOKEN
+- FNOS/Transfer Exporter: http://127.0.0.1:9402/metrics
 
 如果你要让 Grafana 也对外访问，可加：
 ```bash
@@ -86,3 +88,9 @@ ssh -N \
 - [workspace/llm/rag/monitoring/nosudo/prometheus.yml](workspace/llm/rag/monitoring/nosudo/prometheus.yml)
 - [workspace/llm/rag/monitoring/nosudo/grafana.ini](workspace/llm/rag/monitoring/nosudo/grafana.ini)
 - [workspace/llm/rag/monitoring/nosudo/grafana/dashboards/rag-overview-nosudo.json](workspace/llm/rag/monitoring/nosudo/grafana/dashboards/rag-overview-nosudo.json)
+
+
+## 7. 新增指标（FNOS/传输/带宽）
+- `rag_fnos_tcp_up`, `rag_fnos_tcp_latency_seconds`
+- `rag_backup_latest_timestamp_seconds`, `rag_backup_latest_size_bytes`, `rag_backup_latest_files_total`
+- `rag_network_rx_bytes_total`, `rag_network_tx_bytes_total`

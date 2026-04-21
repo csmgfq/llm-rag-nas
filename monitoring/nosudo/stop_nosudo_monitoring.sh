@@ -6,7 +6,7 @@ RUN_DIR="$ROOT/run"
 REMOTE_MAC_PORT="${REMOTE_MAC_PORT:-11300}"
 LOCAL_GRAFANA_PORT="${LOCAL_GRAFANA_PORT:-13000}"
 
-for name in reverse_grafana_tunnel grafana prometheus lm_exporter; do
+for name in reverse_grafana_tunnel grafana prometheus fnos_transfer_exporter lm_exporter; do
   pid_file="$RUN_DIR/${name}.pid"
   if [[ -f "$pid_file" ]]; then
     pid="$(cat "$pid_file")"
