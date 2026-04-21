@@ -1,3 +1,8 @@
+> [!WARNING]
+> **DEPRECATED REPOSITORY**
+> This repository is maintenance-only. Active consolidated project:
+> `/home/jiangzhiming/workspace/rag-stack-public`
+
 # LLM RAG Toolkit
 
 一个面向本地 / 私有部署场景的轻量 RAG 实验与运维仓库，围绕 LM Studio、监控面板、基准测试和部署脚本展开。
