@@ -13,27 +13,27 @@
 
 ## 1. 一键安装
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring/nosudo
+cd <project-root>/monitoring/nosudo
 bash install_nosudo_monitoring.sh
 ```
 
 ## 2. 启动
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring/nosudo
+cd <project-root>/monitoring/nosudo
 bash start_nosudo_monitoring.sh
 ```
 
 如果你希望让外网域名直接访问 exporter，可以这样启动：
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring/nosudo
+cd <project-root>/monitoring/nosudo
 export LM_EXPORTER_HOST=0.0.0.0
 export LM_EXPORTER_TOKEN="YOUR_SECRET_TOKEN"
 bash start_nosudo_monitoring.sh
 ```
 
-如果域名 `3090-6.grifcc.top` 已经指向当前机器并开放端口，可以直接访问：
-- Exporter: http://3090-6.grifcc.top:9401/metrics?token=YOUR_SECRET_TOKEN
-- Grafana: http://3090-6.grifcc.top:13000
+如果你的域名已经指向当前机器并开放端口，可以直接访问：
+- Exporter: http://<your-host>:9401/metrics?token=YOUR_SECRET_TOKEN
+- Grafana: http://<your-host>:13000
 
 默认账号：
 - user: admin
@@ -53,7 +53,7 @@ bash start_nosudo_monitoring.sh
 
 ## 3. 停止
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring/nosudo
+cd <project-root>/monitoring/nosudo
 bash stop_nosudo_monitoring.sh
 ```
 

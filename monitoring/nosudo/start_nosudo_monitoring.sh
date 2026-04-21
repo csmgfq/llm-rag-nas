@@ -6,6 +6,8 @@ BIN_DIR="$ROOT/bin"
 LOG_DIR="$ROOT/logs"
 RUN_DIR="$ROOT/run"
 mkdir -p "$LOG_DIR" "$RUN_DIR" "$ROOT/data/grafana" "$ROOT/data/grafana/plugins" "$ROOT/grafana/provisioning/plugins" "$ROOT/grafana/provisioning/alerting"
+RENDER_DIR="$RUN_DIR/rendered"
+mkdir -p "$RENDER_DIR/provisioning/dashboards" "$RENDER_DIR/provisioning/datasources"
 
 PROM_VER="2.54.1"
 GRAFANA_VER="11.2.2"
@@ -18,6 +20,9 @@ LM_EXPORTER_PORT="${LM_EXPORTER_PORT:-9401}"
 LM_EXPORTER_TOKEN="${LM_EXPORTER_TOKEN:-}"
 PROM_BIN="$BIN_DIR/prometheus-${PROM_VER}.linux-amd64/prometheus"
 GRAFANA_BIN="$BIN_DIR/grafana-v${GRAFANA_VER}/bin/grafana"
+GRAFANA_CONFIG_RENDERED="$RENDER_DIR/grafana.ini"
+DASHBOARDS_YML_RENDERED="$RENDER_DIR/provisioning/dashboards/dashboards.yml"
+DATASOURCE_YML_RENDERED="$RENDER_DIR/provisioning/datasources/datasource.yml"
 
 if [[ ! -x "$PROM_BIN" || ! -x "$GRAFANA_BIN" ]]; then
   echo "Missing binaries, run: bash $ROOT/install_nosudo_monitoring.sh"
@@ -46,6 +51,10 @@ export LM_EXPORTER_HOST
 export LM_EXPORTER_PORT
 export LM_EXPORTER_TOKEN
 
+sed -e "s#__ROOT__#$ROOT#g" -e "s#__PROVISIONING__#$RENDER_DIR/provisioning#g" "$ROOT/grafana.ini" > "$GRAFANA_CONFIG_RENDERED"
+sed "s#__ROOT__#$ROOT#g" "$ROOT/grafana/provisioning/dashboards/dashboards.yml" > "$DASHBOARDS_YML_RENDERED"
+cp "$ROOT/grafana/provisioning/datasources/datasource.yml" "$DATASOURCE_YML_RENDERED"
+
 nohup setsid python3 "$ROOT/lm_exporter.py" > "$LOG_DIR/lm_exporter.log" 2>&1 < /dev/null &
 echo $! > "$RUN_DIR/lm_exporter.pid"
 
@@ -58,7 +67,7 @@ echo $! > "$RUN_DIR/prometheus.pid"
 
 nohup env GF_SERVER_HTTP_ADDR=$GRAFANA_HOST GF_SERVER_HTTP_PORT=$GRAFANA_PORT setsid "$GRAFANA_BIN" server \
   --homepath "$BIN_DIR/grafana-v${GRAFANA_VER}" \
-  --config "$ROOT/grafana.ini" \
+  --config "$GRAFANA_CONFIG_RENDERED" \
   > "$LOG_DIR/grafana.log" 2>&1 < /dev/null &
 echo $! > "$RUN_DIR/grafana.pid"
 

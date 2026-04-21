@@ -12,10 +12,11 @@ PORT = int(os.environ.get("LM_EXPORTER_PORT", "9401"))
 HOST = os.environ.get("LM_EXPORTER_HOST", "127.0.0.1")
 LM_URL = os.environ.get("LM_URL", "http://127.0.0.1:1234/v1/models")
 ACCESS_TOKEN = os.environ.get("LM_EXPORTER_TOKEN", "").strip()
+DEFAULT_BENCHMARK_METRICS_FILE = Path(__file__).resolve().parent / "data" / "benchmark_metrics.json"
 BENCHMARK_METRICS_FILE = Path(
     os.environ.get(
         "RAG_BENCHMARK_METRICS_FILE",
-        "/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/data/benchmark_metrics.json",
+        str(DEFAULT_BENCHMARK_METRICS_FILE),
     )
 )
 

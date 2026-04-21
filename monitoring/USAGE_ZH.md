@@ -21,7 +21,7 @@
 
 1. 临时用 sudo 启动
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring
+cd <project-root>/monitoring
 sudo docker compose up -d
 ```
 
@@ -29,13 +29,13 @@ sudo docker compose up -d
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
-cd /home/jiangzhiming/workspace/llm/rag/monitoring
+cd <project-root>/monitoring
 docker compose up -d
 ```
 
 也可以直接运行：
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring
+cd <project-root>/monitoring
 bash start_monitoring.sh
 ```
 
@@ -59,7 +59,7 @@ curl -fsS http://127.0.0.1:9400/metrics | head
 
 ## 5. 常用运维命令
 ```bash
-cd /home/jiangzhiming/workspace/llm/rag/monitoring
+cd <project-root>/monitoring
 
 # 查看状态
 docker compose ps

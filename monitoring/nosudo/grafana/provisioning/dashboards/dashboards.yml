@@ -8,4 +8,4 @@ providers:
     disableDeletion: false
     updateIntervalSeconds: 30
     options:
-      path: /home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/grafana/dashboards
+      path: __ROOT__/grafana/dashboards

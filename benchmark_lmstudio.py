@@ -25,10 +25,11 @@ LONG_MAX_TOKENS = int(os.environ.get("BENCH_LONG_MAX_TOKENS", "384"))
 TEMPERATURE = float(os.environ.get("BENCH_TEMPERATURE", "0.1"))
 REPORT_JSON = Path(os.environ.get("BENCH_REPORT_JSON", "benchmark_report.json"))
 REPORT_MD = Path(os.environ.get("BENCH_REPORT_MD", "benchmark_report.md"))
+DEFAULT_METRICS_JSON = Path(__file__).resolve().parent / "monitoring" / "nosudo" / "data" / "benchmark_metrics.json"
 METRICS_JSON = Path(
     os.environ.get(
         "BENCH_METRICS_JSON",
-        "/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/data/benchmark_metrics.json",
+        str(DEFAULT_METRICS_JSON),
     )
 )
 
