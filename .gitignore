@@ -6,9 +6,13 @@ __pycache__/
 *.pid
 *.db
 *.tar.gz
+benchmark_report.json
+benchmark_report.md
 
 # Prometheus/Grafana runtime data
 monitoring/nosudo/data/grafana/
 monitoring/nosudo/data/prometheus/
 monitoring/nosudo/run/
 monitoring/nosudo/logs/
+monitoring/nosudo/data/benchmark_metrics.json
+monitoring/nosudo/bin/
