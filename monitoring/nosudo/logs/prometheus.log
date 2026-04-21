@@ -1,0 +1,28 @@
+ts=2026-04-20T20:51:37.133Z caller=main.go:601 level=info msg="No time or size retention was set so using the default time retention" duration=15d
+ts=2026-04-20T20:51:37.133Z caller=main.go:645 level=info msg="Starting Prometheus Server" mode=server version="(version=2.54.1, branch=HEAD, revision=e6cfa720fbe6280153fab13090a483dbd40bece3)"
+ts=2026-04-20T20:51:37.133Z caller=main.go:650 level=info build_context="(go=go1.22.6, platform=linux/amd64, user=root@812ffd741951, date=20240827-10:56:41, tags=netgo,builtinassets,stringlabels)"
+ts=2026-04-20T20:51:37.133Z caller=main.go:651 level=info host_details="(Linux 6.8.0-107-generic #107-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 13 19:51:50 UTC 2026 x86_64 server3090-6 (none))"
+ts=2026-04-20T20:51:37.133Z caller=main.go:652 level=info fd_limits="(soft=1048576, hard=1048576)"
+ts=2026-04-20T20:51:37.133Z caller=main.go:653 level=info vm_limits="(soft=unlimited, hard=unlimited)"
+ts=2026-04-20T20:51:37.144Z caller=web.go:571 level=info component=web msg="Start listening for connections" address=127.0.0.1:19090
+ts=2026-04-20T20:51:37.145Z caller=main.go:1160 level=info msg="Starting TSDB ..."
+ts=2026-04-20T20:51:37.145Z caller=dir_locker.go:77 level=warn component=tsdb msg="A lockfile from a previous execution already existed. It was replaced" file=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/data/prometheus/lock
+ts=2026-04-20T20:51:37.149Z caller=tls_config.go:313 level=info component=web msg="Listening on" address=127.0.0.1:19090
+ts=2026-04-20T20:51:37.149Z caller=tls_config.go:316 level=info component=web msg="TLS is disabled." http2=false address=127.0.0.1:19090
+ts=2026-04-20T20:51:37.154Z caller=head.go:626 level=info component=tsdb msg="Replaying on-disk memory mappable chunks if any"
+ts=2026-04-20T20:51:37.154Z caller=head.go:713 level=info component=tsdb msg="On-disk memory mappable chunks replay completed" duration=580.414µs
+ts=2026-04-20T20:51:37.154Z caller=head.go:721 level=info component=tsdb msg="Replaying WAL, this may take a while"
+ts=2026-04-20T20:51:37.171Z caller=head.go:793 level=info component=tsdb msg="WAL segment loaded" segment=0 maxSegment=5
+ts=2026-04-20T20:51:37.193Z caller=head.go:793 level=info component=tsdb msg="WAL segment loaded" segment=1 maxSegment=5
+ts=2026-04-20T20:51:37.202Z caller=head.go:793 level=info component=tsdb msg="WAL segment loaded" segment=2 maxSegment=5
+ts=2026-04-20T20:51:37.207Z caller=head.go:793 level=info component=tsdb msg="WAL segment loaded" segment=3 maxSegment=5
+ts=2026-04-20T20:51:37.213Z caller=head.go:793 level=info component=tsdb msg="WAL segment loaded" segment=4 maxSegment=5
+ts=2026-04-20T20:51:37.217Z caller=head.go:793 level=info component=tsdb msg="WAL segment loaded" segment=5 maxSegment=5
+ts=2026-04-20T20:51:37.217Z caller=head.go:830 level=info component=tsdb msg="WAL replay completed" checkpoint_replay_duration=72.649µs wal_replay_duration=62.4013ms wbl_replay_duration=235ns chunk_snapshot_load_duration=0s mmap_chunk_replay_duration=580.414µs total_replay_duration=63.115498ms
+ts=2026-04-20T20:51:37.220Z caller=main.go:1181 level=info fs_type=EXT4_SUPER_MAGIC
+ts=2026-04-20T20:51:37.220Z caller=main.go:1184 level=info msg="TSDB started"
+ts=2026-04-20T20:51:37.220Z caller=main.go:1367 level=info msg="Loading configuration file" filename=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/prometheus.yml
+ts=2026-04-20T20:51:37.222Z caller=main.go:1404 level=info msg="updated GOGC" old=100 new=75
+ts=2026-04-20T20:51:37.224Z caller=main.go:1415 level=info msg="Completed loading of configuration file" filename=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/prometheus.yml totalDuration=3.487893ms db_storage=1.98µs remote_storage=2.561µs web_handler=722ns query_engine=10.95µs scrape=537.617µs scrape_sd=70.146µs notify=1.743µs notify_sd=1.866µs rules=2.392µs tracing=7.456µs
+ts=2026-04-20T20:51:37.224Z caller=main.go:1145 level=info msg="Server is ready to receive web requests."
+ts=2026-04-20T20:51:37.224Z caller=manager.go:164 level=info component="rule manager" msg="Starting rule manager..."

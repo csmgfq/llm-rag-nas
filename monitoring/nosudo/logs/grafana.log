@@ -1,0 +1,67 @@
+logger=settings t=2026-04-21T04:51:37.175616473+08:00 level=info msg="Starting Grafana" version=11.2.2 commit=c47b921ef40c0c411e9bad2cac05eb6c540c0979 branch=HEAD compiled=2026-04-21T04:51:37+08:00
+logger=settings t=2026-04-21T04:51:37.175932109+08:00 level=info msg="Config loaded from" file=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/bin/grafana-v11.2.2/conf/defaults.ini
+logger=settings t=2026-04-21T04:51:37.175946015+08:00 level=info msg="Config loaded from" file=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/grafana.ini
+logger=settings t=2026-04-21T04:51:37.17595353+08:00 level=info msg="Config overridden from Environment variable" var="GF_SERVER_HTTP_ADDR=0.0.0.0"
+logger=settings t=2026-04-21T04:51:37.175961301+08:00 level=info msg="Config overridden from Environment variable" var="GF_SERVER_HTTP_PORT=13000"
+logger=settings t=2026-04-21T04:51:37.175968197+08:00 level=info msg=Target target=[all]
+logger=settings t=2026-04-21T04:51:37.175979551+08:00 level=info msg="Path Home" path=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/bin/grafana-v11.2.2
+logger=settings t=2026-04-21T04:51:37.175986495+08:00 level=info msg="Path Data" path=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/data/grafana
+logger=settings t=2026-04-21T04:51:37.175993991+08:00 level=info msg="Path Logs" path=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/logs
+logger=settings t=2026-04-21T04:51:37.176001818+08:00 level=info msg="Path Plugins" path=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/data/grafana/plugins
+logger=settings t=2026-04-21T04:51:37.176009776+08:00 level=info msg="Path Provisioning" path=/home/jiangzhiming/workspace/llm/rag/monitoring/nosudo/grafana/provisioning
+logger=settings t=2026-04-21T04:51:37.176017239+08:00 level=info msg="App mode production"
+logger=featuremgmt t=2026-04-21T04:51:37.176357768+08:00 level=info msg=FeatureToggles exploreMetrics=true annotationPermissionUpdate=true publicDashboards=true recordedQueriesMulti=true logsContextDatasourceUi=true logsExploreTableVisualisation=true lokiMetricDataplane=true angularDeprecationUI=true groupToNestedTableTransformation=true recoveryThreshold=true lokiQuerySplitting=true dataplaneFrontendFallback=true prometheusConfigOverhaulAuth=true cloudWatchCrossAccountQuerying=true ssoSettingsApi=true logsInfiniteScrolling=true panelMonitoring=true prometheusMetricEncyclopedia=true cloudWatchNewLabelParsing=true dashgpt=true alertingInsights=true addFieldFromCalculationStatFunctions=true managedPluginsInstall=true kubernetesPlaylists=true awsAsyncQueryCaching=true formatString=true transformationsVariableSupport=true nestedFolders=true alertingNoDataErrorExecution=true correlations=true prometheusAzureOverrideAudience=true lokiStructuredMetadata=true topnav=true logRowsPopoverMenu=true prometheusDataplane=true lokiQueryHints=true cloudWatchRoundUpEndTime=true transformationsRedesign=true autoMigrateXYChartPanel=true alertingSimplifiedRouting=true influxdbBackendMigration=true tlsMemcached=true
+logger=sqlstore t=2026-04-21T04:51:37.17643968+08:00 level=info msg="Connecting to DB" dbtype=sqlite3
+logger=migrator t=2026-04-21T04:51:37.183536272+08:00 level=info msg="Locking database"
+logger=migrator t=2026-04-21T04:51:37.183560565+08:00 level=info msg="Starting DB migrations"
+logger=migrator t=2026-04-21T04:51:37.213534179+08:00 level=info msg="migrations completed" performed=0 skipped=594 duration=1.06658ms
+logger=migrator t=2026-04-21T04:51:37.214300425+08:00 level=info msg="Unlocking database"
+logger=secrets t=2026-04-21T04:51:37.214827557+08:00 level=info msg="Envelope encryption state" enabled=true currentprovider=secretKey.v1
+logger=plugin.angulardetectorsprovider.dynamic t=2026-04-21T04:51:37.273208032+08:00 level=info msg="Restored cache from database" duration=649.013µs
+logger=plugin.store t=2026-04-21T04:51:37.33813712+08:00 level=info msg="Loading plugins..."
+logger=plugins.registration t=2026-04-21T04:51:37.377144243+08:00 level=error msg="Could not register plugin" pluginId=xychart error="plugin xychart is already registered"
+logger=plugins.initialization t=2026-04-21T04:51:37.37717733+08:00 level=error msg="Could not initialize plugin" pluginId=xychart error="plugin xychart is already registered"
+logger=plugin.store t=2026-04-21T04:51:37.377264259+08:00 level=info msg="Plugins loaded" count=54 duration=39.129951ms
+logger=query_data t=2026-04-21T04:51:37.381527916+08:00 level=info msg="Query Service initialization"
+logger=live.push_http t=2026-04-21T04:51:37.386320732+08:00 level=info msg="Live Push Gateway initialization"
+logger=ngalert.notifier.alertmanager org=1 t=2026-04-21T04:51:37.392831745+08:00 level=info msg="Applying new configuration to Alertmanager" configHash=d2c56faca6af2a5772ff4253222f7386
+logger=ngalert.state.manager t=2026-04-21T04:51:37.464411809+08:00 level=info msg="Running in alternative execution of Error/NoData mode"
+logger=infra.usagestats.collector t=2026-04-21T04:51:37.468675159+08:00 level=info msg="registering usage stat providers" usageStatsProvidersLen=2
+logger=provisioning.alerting t=2026-04-21T04:51:37.581007105+08:00 level=info msg="starting to provision alerting"
+logger=provisioning.alerting t=2026-04-21T04:51:37.581061941+08:00 level=info msg="finished to provision alerting"
+logger=grafanaStorageLogger t=2026-04-21T04:51:37.581652285+08:00 level=info msg="Storage starting"
+logger=ngalert.state.manager t=2026-04-21T04:51:37.581847378+08:00 level=info msg="Warming state cache for startup"
+logger=ngalert.multiorg.alertmanager t=2026-04-21T04:51:37.582077483+08:00 level=info msg="Starting MultiOrg Alertmanager"
+logger=http.server t=2026-04-21T04:51:37.585278311+08:00 level=info msg="HTTP Server Listen" address=[::]:13000 protocol=http subUrl= socket=
+logger=ngalert.state.manager t=2026-04-21T04:51:37.662037179+08:00 level=info msg="State cache has been initialized" states=0 duration=80.188066ms
+logger=ngalert.scheduler t=2026-04-21T04:51:37.66209217+08:00 level=info msg="Starting scheduler" tickInterval=10s maxAttempts=1
+logger=provisioning.dashboard t=2026-04-21T04:51:37.66210829+08:00 level=info msg="starting to provision dashboards"
+logger=ticker t=2026-04-21T04:51:37.66214244+08:00 level=info msg=starting first_tick=2026-04-21T04:51:40+08:00
+logger=provisioning.dashboard t=2026-04-21T04:51:37.845089528+08:00 level=info msg="finished to provision dashboards"
+logger=grafana-apiserver t=2026-04-21T04:51:37.888923358+08:00 level=info msg="Adding GroupVersion playlist.grafana.app v0alpha1 to ResourceManager"
+logger=grafana-apiserver t=2026-04-21T04:51:37.889425943+08:00 level=info msg="Adding GroupVersion featuretoggle.grafana.app v0alpha1 to ResourceManager"
+logger=plugins.update.checker t=2026-04-21T04:51:38.370304098+08:00 level=info msg="Update check succeeded" duration=788.816508ms
+logger=grafana.update.checker t=2026-04-21T04:51:38.372394311+08:00 level=info msg="Update check succeeded" duration=790.273835ms
+logger=context userId=1 orgId=1 uname=admin t=2026-04-21T04:51:40.290086671+08:00 level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=10.198.251.140 time_ms=3 duration=3.881651ms size=0 referer= handler=/api/live/ws status_source=server
+logger=live t=2026-04-21T04:51:40.470414653+08:00 level=info msg="Initialized channel handler" channel=grafana/dashboard/uid/rag-overview-nosudo address=grafana/dashboard/uid/rag-overview-nosudo
+logger=context userId=1 orgId=1 uname=admin t=2026-04-21T04:52:18.204477105+08:00 level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=10.198.251.140 time_ms=3 duration=3.779469ms size=0 referer= handler=/api/live/ws status_source=server
+logger=infra.usagestats t=2026-04-21T04:53:08.589978221+08:00 level=info msg="Usage stats are ready to report"
+logger=context userId=1 orgId=1 uname=admin t=2026-04-21T04:55:32.200313274+08:00 level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=10.198.251.140 time_ms=3 duration=3.563388ms size=0 referer= handler=/api/live/ws status_source=server
+logger=context userId=1 orgId=1 uname=admin t=2026-04-21T04:55:48.959057407+08:00 level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=10.198.251.140 time_ms=3 duration=3.268223ms size=0 referer= handler=/api/live/ws status_source=server
+logger=context userId=1 orgId=1 uname=admin t=2026-04-21T04:58:33.049860215+08:00 level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=10.198.251.140 time_ms=3 duration=3.696603ms size=0 referer= handler=/api/live/ws status_source=server
+logger=cleanup t=2026-04-21T05:01:37.68253614+08:00 level=info msg="Completed cleanup jobs" duration=100.206607ms
+logger=plugins.update.checker t=2026-04-21T05:01:39.269126205+08:00 level=info msg="Update check succeeded" duration=897.840834ms
+logger=cleanup t=2026-04-21T05:11:37.70545923+08:00 level=info msg="Completed cleanup jobs" duration=123.065316ms
+logger=plugins.update.checker t=2026-04-21T05:11:39.262885989+08:00 level=info msg="Update check succeeded" duration=891.277404ms
+logger=cleanup t=2026-04-21T05:21:37.768603252+08:00 level=info msg="Completed cleanup jobs" duration=185.864962ms
+logger=plugins.update.checker t=2026-04-21T05:21:39.129682622+08:00 level=info msg="Update check succeeded" duration=757.907953ms
+logger=infra.usagestats t=2026-04-21T05:23:08.599002316+08:00 level=info msg="Usage stats are ready to report"
+98.251.140 time_ms=3 duration=3.268223ms size=0 referer= handler=/api/live/ws status_source=server
+logger=context userId=1 orgId=1 uname=admin t=2026-04-21T04:58:33.049860215+08:00 level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=10.198.251.140 time_ms=3 duration=3.696603ms size=0 referer= handler=/api/live/ws status_source=server
+logger=cleanup t=2026-04-21T05:01:37.68253614+08:00 level=info msg="Completed cleanup jobs" duration=100.206607ms
+logger=plugins.update.checker t=2026-04-21T05:01:39.269126205+08:00 level=info msg="Update check succeeded" duration=897.840834ms
+logger=cleanup t=2026-04-21T05:11:37.70545923+08:00 level=info msg="Completed cleanup jobs" duration=123.065316ms
+logger=plugins.update.checker t=2026-04-21T05:11:39.262885989+08:00 level=info msg="Update check succeeded" duration=891.277404ms
+logger=cleanup t=2026-04-21T05:21:37.768603252+08:00 level=info msg="Completed cleanup jobs" duration=185.864962ms
+logger=plugins.update.checker t=2026-04-21T05:21:39.129682622+08:00 level=info msg="Update check succeeded" duration=757.907953ms
+logger=infra.usagestats t=2026-04-21T05:23:08.599002316+08:00 level=info msg="Usage stats are ready to report"
