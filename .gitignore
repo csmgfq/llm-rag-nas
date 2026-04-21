@@ -1,2 +1,14 @@
 __pycache__/
 *.pyc
+
+# Runtime and local monitoring artifacts
+*.log
+*.pid
+*.db
+*.tar.gz
+
+# Prometheus/Grafana runtime data
+monitoring/nosudo/data/grafana/
+monitoring/nosudo/data/prometheus/
+monitoring/nosudo/run/
+monitoring/nosudo/logs/
